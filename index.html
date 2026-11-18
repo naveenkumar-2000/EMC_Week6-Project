@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-400">
-    <h1>Naveen Kumar</h1>
+
+<body class="bg-[#F6F1E8]">
     <!-- Heading Nav bar Section: #naveen -->
-    <div id="nav-container" class="flex justify-between bg-[#2A1F1B] p-2 items-center">
+    <div id="nav-container" class="sticky top-0 z-50 flex justify-between bg-[#2A1F1B] p-2 items-center">
         <div id="nav_logo" class="flex items-center gap-1.5">
             <span id="logo-icon" class="text-4xl">☕</span>            
             <div id="Heading" class="flex flex-col text-[14px]">
@@ -30,14 +33,126 @@
             <a href="" class="hover:text-[#C3956A]">Contact</a>
         </div>
         <div id="nav_cart" class="flex  h-fit p-1 items-center gap-3">
-            <div id="cart" class="flex bg-white items-center rounded-2xl py-0.5 px-3 gap-1">
+            <div id="cart" class="flex bg-white items-center rounded-2xl py-0.5 px-3 gap-1 cursor-pointer">
                 <span class="text-[15px] font-semibold">🛒 Cart </span>
                 <p class="bg-[#2A1F1B] text-white rounded-4xl px-[6px] py-0">0</p>
             </div>
-            <div id="slide_menu" class="min-[900px]:hidden text-[20px]">
+            <div id="slide_menu" class="min-[900px]:hidden text-[20px] cursor-pointer">
                 <i class="fa-solid fa-bars" style="color: rgb(255, 255, 255);"></i>
             </div>
         </div>
     </div>
+    <!-- Nav bar Ended -->
+
+    <!-- Menu section: #naveen -->
+    <div class="p-[20px]">
+        <p class="font-extralight text-[11px] font-['Black Ops One', system-ui]">OUR FEATURED MENU</p>
+        <H1 class="text-[36px] font-['Playfair Display', Georgia, serif;]">Popular Picks</H1>
+        <div>
+            <div class="flex gap-4 mt-2.5">
+                <p id="">All</p>
+                <p id="">Coffee</p>
+                <p id="">Cold Drinks</p>
+                <p id="">Food</p>
+            </div>
+            <div id="menu_container" class="mt-5 flex">
+                <div class="bg-white w-fit rounded-3xl">
+                    <img class="w-[230px] rounded-t-3xl" src="./img/coffee_bg.jpeg" alt="">
+                    <div class="m-3">
+                        <h1 class="font-['Fraunces'] text-2xl">Espresso</h1>
+                        <p class="text-[11px]">Smooth espresso with steamed mink.</p>
+                        <span class="flex justify-between py-3">
+                            <p>$ 4.50</p>
+                            <p class="bg-[#3B2416] rounded-2xl p-1 px-1.5">🛒</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-white w-fit rounded-3xl">
+                    <img class="w-[230px] rounded-t-3xl" src="./img/coffee_bg.jpeg" alt="">
+                    <div class="m-3">
+                        <h1 class="font-['Fraunces'] text-2xl">Espresso</h1>
+                        <p class="text-[11px]">Smooth espresso with steamed mink.</p>
+                        <span class="flex justify-between py-3">
+                            <p>$ 4.50</p>
+                            <p class="bg-[#3B2416] rounded-2xl p-1 px-1.5">🛒</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-white w-fit rounded-3xl">
+                    <img class="w-[230px] rounded-t-3xl" src="./img/coffee_bg.jpeg" alt="">
+                    <div class="m-3">
+                        <h1 class="font-['Fraunces'] text-2xl">Espresso</h1>
+                        <p class="text-[11px]">Smooth espresso with steamed mink.</p>
+                        <span class="flex justify-between py-3">
+                            <p>$ 4.50</p>
+                            <p class="bg-[#3B2416] rounded-2xl p-1 px-1.5">🛒</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-white w-fit rounded-3xl">
+                    <img class="w-[230px] rounded-t-3xl" src="./img/coffee_bg.jpeg" alt="">
+                    <div class="m-3">
+                        <h1 class="font-['Fraunces'] text-2xl">Espresso</h1>
+                        <p class="text-[11px]">Smooth espresso with steamed mink.</p>
+                        <span class="flex justify-between py-3">
+                            <p>$ 4.50</p>
+                            <p class="bg-[#3B2416] rounded-2xl p-1 px-1.5">🛒</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-white w-fit rounded-3xl">
+                    <img class="w-[230px] rounded-t-3xl" src="./img/coffee_bg.jpeg" alt="">
+                    <div class="m-3">
+                        <h1 class="font-['Fraunces'] text-2xl">Espresso</h1>
+                        <p class="text-[11px]">Smooth espresso with steamed mink.</p>
+                        <span class="flex justify-between py-3">
+                            <p>$ 4.50</p>
+                            <p class="bg-[#3B2416] rounded-2xl p-1 px-1.5">🛒</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-white w-fit rounded-3xl">
+                    <img class="w-[230px] rounded-t-3xl" src="./img/coffee_bg.jpeg" alt="">
+                    <div class="m-3">
+                        <h1 class="font-['Fraunces'] text-2xl">Espresso</h1>
+                        <p class="text-[11px]">Smooth espresso with steamed mink.</p>
+                        <span class="flex justify-between py-3">
+                            <p>$ 4.50</p>
+                            <p class="bg-[#3B2416] rounded-2xl p-1 px-1.5">🛒</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-white w-fit rounded-3xl">
+                    <img class="w-[230px] rounded-t-3xl" src="./img/coffee_bg.jpeg" alt="">
+                    <div class="m-3">
+                        <h1 class="font-['Fraunces'] text-2xl">Espresso</h1>
+                        <p class="text-[11px]">Smooth espresso with steamed mink.</p>
+                        <span class="flex justify-between py-3">
+                            <p>$ 4.50</p>
+                            <p class="bg-[#3B2416] rounded-2xl p-1 px-1.5">🛒</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="bg-white w-fit rounded-3xl">
+                    <img class="w-[230px] rounded-t-3xl" src="./img/coffee_bg.jpeg" alt="">
+                    <div class="m-3">
+                        <h1 class="font-['Fraunces'] text-2xl">Espresso</h1>
+                        <p class="text-[11px]">Smooth espresso with steamed mink.</p>
+                        <span class="flex justify-between py-3">
+                            <p>$ 4.50</p>
+                            <p class="bg-[#3B2416] rounded-2xl p-1 px-1.5">🛒</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="./Javascript.js"></script>
 </body>
 </html>
