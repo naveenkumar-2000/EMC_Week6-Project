@@ -1,0 +1,157 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Banner section Anna poorani */
+body {
+    background-color: #1c0e08;
+    font-family: Arial;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #150a05, #482817);
+    color: white;
+    padding: 50px 10%;
+}
+
+.content {
+    width: 50%;
+}
+
+.small {
+    color: #d99a60;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    font-size: 13px;
+}
+
+h1 {
+    font-family: Georgia;
+    font-size: 65px;
+    color: #fff3e5;
+    margin-bottom: 25px;
+}
+
+.description {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+button {
+    background-color: #d4a071;
+    border: none;
+    padding: 18px 30px;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.picture {
+    width: 50%;
+    
+}
+.picture img {
+    width: 100%;
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 20%,
+        black 80%,
+        transparent
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 20%,
+        black 80%,
+        transparent
+    );
+}
+
+.words {
+    position: absolute;
+    top: 5%;
+    right: 0;
+    color: #e4a16d;
+    font-family: cursive;
+    font-size: 25px;
+    line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+
+    .hero {
+        flex-direction: column;
+        padding: 40px 7%;
+    }
+
+    .content,
+    .picture {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 42px;
+    }
+
+}
+
+/* Banner section ended Annapoorani */
+
+
+/* .coffee {
+    background-color: #21140f;
+    padding: 40px 12%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coffee h2 {
+    color: white;
+    font-family: Georgia;
+    font-size: 30px;
+}
+
+.coffee p {
+    color: #bbb;
+    font-size: 17px;
+}
+
+.coffee form {
+    background: #f5f0e7;
+    padding: 5px;
+    border-radius: 30px;
+}
+
+.coffee input {
+    border: none;
+    background: transparent;
+    padding: 12px;
+    outline: none;
+}
+
+.coffee button {
+    background: #422719;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .coffee {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+    }
+} */
+
+/* Ended */
