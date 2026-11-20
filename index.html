@@ -44,34 +44,40 @@
     </div>
     <!-- Nav bar Ended -->
 
-     <!-- Home page Banner section : @Anna poorani -->
-
-    <div class="hero">
-
+    <!-- Home page Banner section : @Anna poorani -->
+    <div id="hero" class="max-[750px]:flex-col">
         <div class="content">
-
             <p class="small">PREMIUM COFFEE & FRESH FOOD</p>
-
-            <h1>Good Coffee<br>Better Days</h1>
-
+            <span class="max-[874px]:text-[47px] min-[874px]:text-[64px]">Good Coffee Better <br> Days</span>
             <p class="description">
                 At The Bean Haven, we bring people together over
                 perfectly brewed coffee, fresh bites and a cozy
                 atmosphere. More than just a café — it's a feeling.
             </p>
-
             <button>Explore Our Menu →</button>
-
         </div>
-
         <div class="picture">
-
             <img src="./img/Coffee.png" alt="Coffee">
-
         </div>
     </div>
-<!-- Ended home page section -->
-    
+    <!-- Ended home page section -->
+
+    <!-- Popup Function: #Naveen -->
+    <!-- Put this just before the closing body tag -->
+    <div id="cart-overlay" class="hidden fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
+        <div id="cart-box" class="relative bg-[#F6F1E8] w-[440px] max-w-[90%] rounded-3xl p-6">
+        <button id="close-btn" class="absolute top-4 right-4 text-xl">✕</button>
+        <h2 class="font-['Playfair_Display'] text-2xl">Your Cart</h2>
+
+    <!-- state 1: empty -->
+        <p id="empty-msg" class="text-center py-10">Your cart is empty. Add something tasty ☕</p>
+
+    <!-- state 2: items, hidden for now -->
+        <div id="cart-items" class="hidden"></div>
+        </div>
+    </div>
+    <!-- Ended Popup Function: #Naveen -->
+
     <!-- Menu section: #naveen -->
     <div class="p-[20px]">
         <p class="font-extralight text-[11px] font-['Black Ops One', system-ui]">OUR FEATURED MENU</p>
@@ -177,25 +183,22 @@
     </div>                                
 
 
-
-
    <!--Subscribe banner Started here Annapoorani -->
-
-  <section class="subscribe">
-
-        <div class="text">
+    <section class="subscribe">
+    <div class="text">
             <h2>Join Our Coffee Club</h2>
             <p>Get exclusive offers, new menu updates and special events.</p>
         </div>
-
         <form class="email-box" id="subscribeForm">
             <input type="email" id="email"
                    placeholder="Your email address" required>
-
-            <button type="submit">Subscribe →</button>
-        </form>
+                   <button type="submit">Subscribe →</button>
+            </form>
+            <div class="welcome-msg" id="welcomeMsh">Welcome to the club! ☕</div>
     </section>
     <!--Subscribe banner ended here Annapoorani -->
+
+
  <script src="./Javascript.js"></script>
 </body>
 </html>
