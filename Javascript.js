@@ -1,13 +1,13 @@
 var form = document.getElementById("subscribeForm");
 
-form.addEventListener("submit", function(event) {
+form.addEventListener("submit", function (event) {
 
-    event.preventDefault();
+  event.preventDefault();
 
-    var email = document.getElementById("email").value;
-    
-    form.style.display="none";
-    document.getElementById("welcomeMsh").style.display="block";
+  var email = document.getElementById("email").value;
+
+  form.style.display = "none";
+  document.getElementById("welcomeMsh").style.display = "block";
 
 });
 
@@ -153,3 +153,38 @@ cartButton.addEventListener("click", function () {
 document.querySelectorAll(".add-btn").forEach(function (btn) {
   btn.addEventListener("click", renderCart);
 });
+
+
+// Contact Us
+
+const contactForm = document.getElementById("contactForm");
+
+contactForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  // Get input values
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("contactEmail").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  // Check empty fields
+  if (name === "" || email === "" || message === "") {
+    alert("Please fill in all fields!");
+    return;
+  }
+
+  // Check email format
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailPattern.test(email)) {
+    alert("Please enter a valid email address!");
+    return;
+  }
+
+  // Display success message
+  document.getElementById("successMessage")
+    .classList.remove("hidden");
+
+  contactForm.reset();
+
+});
+

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,303 +10,437 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="bg-[#F6F1E8]">
     <div class="max-w-[1200px] mx-auto">
-    <!-- Heading Nav bar Section: #naveen -->
-    <div id="nav-container" class="sticky top-0 z-50 flex justify-between bg-[#2A1F1B] p-2 items-center">
-        <div id="nav_logo" class="flex items-center gap-1.5">
-            <span id="logo-icon" class="text-4xl">☕</span>            
-            <div id="Heading" class="flex flex-col text-[14px]">
-                <b class="text-white font-['Fraunces']">CHAT GPTea CAFE</b>
-                <small class="text-[#C3956A] text-[10px]">COFFEE · FOOD · GOOD VIBES</small>
-            </div>
-        </div>
-        <div id="nav_menus" class="text-white flex gap-6 text-[14px] max-[900px]:hidden">
-            <span class="text-[#C3956A] flex-col">
-                <a href="">Home</a><hr>
-            </span>
-            <a href="" class="hover:text-[#C3956A]">About</a>
-            <a href="" class="hover:text-[#C3956A]">Menu</a>
-            <a href="" class="hover:text-[#C3956A]">Gallery</a>
-            <a href="" class="hover:text-[#C3956A]">Blog</a>
-            <a href="" class="hover:text-[#C3956A]">Contact</a>
-        </div>
-        <div id="nav_cart" class="flex  h-fit p-1 items-center gap-3">
-            <div id="cart" class="flex bg-white items-center rounded-2xl py-0.5 px-3 gap-1 cursor-pointer">
-                <span class="text-[15px] font-semibold">🛒 Cart </span>
-                <p id="cart-count" class="bg-[#2A1F1B] text-white rounded-4xl px-[6px] py-0">0</p>
-            </div>
-            <div id="slide_menu" class="min-[900px]:hidden text-[20px] cursor-pointer">
-                <i class="fa-solid fa-bars" style="color: rgb(255, 255, 255);"></i>
-            </div>
-        </div>
-    </div>
-    <!-- Nav bar Ended -->
-
-    <!-- Home page Banner section : @Anna poorani -->
-    <div id="hero" class="max-[750px]:flex-col">
-        <div class="content">
-            <p class="small">PREMIUM COFFEE & FRESH FOOD</p>
-            <span class="max-[874px]:text-[47px] min-[874px]:text-[64px]">Good Coffee Better <br> Days</span>
-            <p class="description">
-                At The Bean Haven, we bring people together over
-                perfectly brewed coffee, fresh bites and a cozy
-                atmosphere. More than just a café — it's a feeling.
-            </p>
-            <button>Explore Our Menu →</button>
-        </div>
-        <div class="picture">
-            <img src="./img/Coffee.png" alt="Coffee">
-        </div>
-    </div><!-- Ended home page section -->
-
-    <!-- Features Section: Rohit -->
-    <section class="features">
-    <div class="feature">
-        <span>☕</span>
-        <h2>Premium Quality</h2>
-        <p>Finest beans, expertly brewed.</p>
-    </div>
-    <div class="feature">
-        <span>🫛</span>
-        <h2>Fresh Ingredients</h2>
-        <p>Tasty, healthy, always fresh.</p>
-    </div>
-    <div class="feature">
-        <span>👥</span>
-        <h2>Cozy Atmosphere</h2>
-        <p>A perfect place to relax.</p>
-    </div>
-    <div class="feature">
-        <span>🚚</span>
-        <h2>Fast & Friendly Service</h2>
-        <p>Because you matter.</p>
-    </div>
-    </section><!-- Features section ended: Rohit -->
-
-    <!-- Popup Function: #Naveen -->
-    <!-- Put this just before the closing body tag -->
-    <div id="cart-overlay" class="hidden fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
-        <div id="cart-box" class="relative bg-[#F6F1E8] w-[440px] max-w-[90%] rounded-3xl p-6">
-        <button id="close-btn" class="absolute top-4 right-4 text-xl">✕</button>
-        <h2 class="font-['Playfair_Display'] text-2xl">Your Cart</h2>
-
-    <!-- state 1: empty -->
-        <p id="empty-msg" class="text-center py-10">Your cart is empty. Add something tasty ☕</p>
-
-    <!-- state 2: items, hidden for now -->
-        <div id="cart-items" class="hidden"></div>
-        <!-- total and Place Order: hidden until the cart has items -->
-<div id="cart-footer" class="hidden">
-  <div class="flex justify-between py-4 text-xl">
-    <span>Total</span>
-    <b id="cart-total">$0.00</b>
-  </div>
-  <button id="place-order" class="w-full bg-[#3B2415] text-white rounded-xl py-3">Place Order</button>
-</div>
-
-<!-- order placed screen: hidden until Place Order is clicked -->
-<div id="order-done" class="hidden text-center py-6">
-  <div class="mx-auto w-16 h-16 rounded-full bg-green-700 text-white text-3xl flex items-center justify-center">✓</div>
-  <h3 class="font-['Playfair_Display'] text-2xl mt-4">Your order has been placed!</h3>
-  <p class="py-3">Wait for a few minutes, it will be ready as soon as possible.</p>
-  <button id="back-menu" class="bg-[#C3956A] rounded-full px-6 py-2">Back to Menu</button>
-</div>
-        </div>
-    </div>
-    <!-- Ended Popup Function: #Naveen -->
-
-    <!-- Menu section: #naveen -->
-    <div class="p-[20px]">
-        
-        <p class="font-extralight text-[11px] font-['Black Ops One', system-ui]">OUR FEATURED MENU</p>
-        <H1 class="text-[36px] text-[#3B2415] font-['Playfair Display', Georgia, serif;]">Popular Picks</H1>
-        <div>
-            <div class="flex gap-4 mt-2.5">
-                <p class="bg-white px-3 py-1 rounded-2xl text-[#3B2416] cursor-pointer" id="">All</p>
-                <p class="bg-white px-3 py-1 rounded-2xl text-[#3B2416] cursor-pointer" id="">Coffee</p>
-                <p class="bg-white px-3 py-1 rounded-2xl text-[#3B2416] cursor-pointer" id="">Cold Drinks</p>
-                <p class="bg-white px-3 py-1 rounded-2xl text-[#3B2416] cursor-pointer" id="">Food</p>
-            </div>
-            <!-- 1 -->
-            <div id="menu_container" class="mt-5 grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="bg-white w-full rounded-3xl">
-                    <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]" src="./img/coffee_bg.jpeg" alt="">
-                    <div class="m-3 mt-1">
-                        <h1 class="font-['Fraunces'] text-2xl">Espresso</h1>
-                        <p class="text-[11px]">Smooth espresso with steamed mink.</p>
-                        <span class="flex justify-between py-0.5">
-                            <p>$ 5.50</p>
-                            <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer" data-name="Espresso" data-price="5.50">🛒</p>
-                        </span>
-                    </div>
-                </div>   
-                 <!-- 2  -->
-                <div class="bg-white w-full rounded-3xl">
-                    <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]"  src="./img/Cappuccino.webp" alt="">
-                    <div class="m-3 mt-1">
-                        <h1 class="font-['Fraunces'] text-2xl">Cappuccino</h1>
-                        <p class="text-[11px]">A bold, velvety hug in a cup for coffee lovers.</p>
-                        <span class="flex justify-between py-0.5">
-                            <p>$ 6.80</p>
-                            <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer" data-name="Cappuccino" data-price="6.80">🛒</p>
-                        </span>
-                    </div>
-                </div>
-                <!-- 3 -->
-                <div class="bg-white w-full rounded-3xl">
-                    <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]" src="./img/Caffe Latte.jpg" alt="">
-                    <div class="m-3 mt-1">
-                        <h1 class="font-['Fraunces'] text-2xl">Caffe Latte</h1>
-                        <p class="text-[11px]">A smooth, creamy embrace in a cup for daily comfort.</p>
-                        <span class="flex justify-between py-0.5">
-                            <p>$ 4.50</p>
-                            <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer" data-name="Caffe Latte" data-price="4.50">🛒</p>
-                        </span>
-                    </div>
-                </div>     
-                <!-- 4 -->
-                <div class="bg-white w-full rounded-3xl">
-                    <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]" src="./img/masala chai.jpeg" alt="">
-                    <div class="m-3 mt-1">
-                        <h1 class="font-['Fraunces'] text-2xl">Masala Chai</h1>
-                        <p class="text-[11px]">Spiced black tea with steamed milk.</p>
-                        <span class="flex justify-between py-0.5">
-                            <p>$ 6.50</p>
-                            <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer" data-name="Masala Chai" data-price="6.50">🛒</p>
-                        </span>
-                    </div>
-                </div>    
-                 <!-- 5 -->
-                <div class="bg-white w-full rounded-3xl">
-                    <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]" src="./img/Cold coffee.jpg" alt="">
-                    <div class="m-3 mt-1">
-                        <h1 class="font-['Fraunces'] text-2xl">Cold Coffee</h1>
-                        <p class="text-[11px]">Bold, icy chill in a cup for instant refreshment.</p>
-                        <span class="flex justify-between py-0.5">
-                            <p>$ 4.25</p>
-                            <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer" data-name="Cold Coffee" data-price="4.25">🛒</p>
-                        </span>
-                    </div>
-                </div>
-                <!-- 6 -->
-                <div class="bg-white w-full rounded-3xl">
-                    <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]" src="./img/Mango Lassi.jpeg" alt="">
-                    <div class="m-3 mt-1">
-                        <h1 class="font-['Fraunces'] text-2xl">Mango Lassi</h1>
-                        <p class="text-[11px]">A sweet, tropical chill in a glass for pure bliss.</p>
-                        <span class="flex justify-between py-0.5">
-                            <p>$ 8.00</p>
-                            <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer" data-name="Mango Lassi" data-price="8.00">🛒</p>
-                        </span>
-                    </div>
-                </div>     
-                <!-- 7 -->
-                <div class="bg-white w-full rounded-3xl">
-                    <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]" src="./img/Samosa Chaat.jpeg" alt="">
-                    <div class="m-3 mt-1">
-                        <h1 class="font-['Fraunces'] text-2xl">Samosa Chaat</h1>
-                        <p class="text-[11px]">Crispy pastry filled with spiced potatoes.</p>
-                        <span class="flex justify-between py-0.5">
-                            <p>$ 3.50</p>
-                            <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer" data-name="Samosa Chaat" data-price="3.50">🛒</p>
-                        </span>
-                    </div>
-                </div>     
-                <!-- 8 -->
-                <div class="bg-white w-full rounded-3xl">
-                    <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]" src="./img/Veg Puff.jpeg" alt="">
-                    <div class="m-3 mt-1">
-                        <h1 class="font-['Fraunces'] text-2xl">Veg Puff</h1>
-                        <p class="text-[11px]">Flaky pastry filled with spiced vegetables.</p>
-                        <span class="flex justify-between py-0.5">
-                            <p>$ 3.99</p>
-                            <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer" data-price="3.99" data-name="Veg Puff">🛒</p>
-                        </span>
-                    </div>
-                </div>     
-            </div>
-        </div>
-    </div>                                
-
-    <!-- About Us Section: Rohit -->
-    <section class="about-section">
-    
-        <!-- Left Image -->
-        <div class="about-image left-image">
-            <img src="./img/coffee.cup.webp" alt="Coffee Cafe">
-            <h2>A Space for Good<br>Moments ♡</h2>
-        </div>
-    
-        <!-- Center Content -->
-        <div class="about-content">
-    
-            <p class="about-subtitle">ABOUT US</p>
-    
-            <h1>Our Story</h1>
-    
-            <p class="about-description">
-                The Bean Haven was born from a simple
-                idea — great coffee brings people together.
-                What started as a small passion project has
-                grown into a cozy cafe where every cup
-                tells a story.
-            </p>
-    
-            <div class="about-features">
-                <div class="flex flex-col items-center text-[11px]">
-                    <span>☕</span>
-                    <p>Quality Beans</p>
-                </div>
-    
-                <div  class="flex flex-col items-center text-[11px]">
-                    <span>👨‍🍳</span>
-                    <p>Skilled Baristas</p>
-                </div>
-    
-                <div class="flex flex-col items-center text-[11px]">
-                    <span>🧡</span>
-                    <p>Warm Community</p>
+        <!-- Heading Nav bar Section: #naveen -->
+        <div id="nav-container" class="sticky top-0 z-50 flex justify-between bg-[#2A1F1B] p-2 items-center">
+            <div id="nav_logo" class="flex items-center gap-1.5">
+                <span id="logo-icon" class="text-4xl">☕</span>
+                <div id="Heading" class="flex flex-col text-[14px]">
+                    <b class="text-white font-['Fraunces']">CHAT GPTea CAFE</b>
+                    <small class="text-[#C3956A] text-[10px]">COFFEE · FOOD · GOOD VIBES</small>
                 </div>
             </div>
-    
-            <a href="#" class="about-btn">Learn More →</a>
-    
+            <div id="nav_menus" class="text-white flex gap-6 text-[14px] max-[900px]:hidden">
+                <span class="text-[#C3956A] flex-col">
+                    <a href="">Home</a>
+                    <hr>
+                </span>
+                <a href="" class="hover:text-[#C3956A]">About</a>
+                <a href="" class="hover:text-[#C3956A]">Menu</a>
+                <a href="" class="hover:text-[#C3956A]">Gallery</a>
+                <a href="" class="hover:text-[#C3956A]">Blog</a>
+                <a href="" class="hover:text-[#C3956A]">Contact</a>
+            </div>
+            <div id="nav_cart" class="flex  h-fit p-1 items-center gap-3">
+                <div id="cart" class="flex bg-white items-center rounded-2xl py-0.5 px-3 gap-1 cursor-pointer">
+                    <span class="text-[15px] font-semibold">🛒 Cart </span>
+                    <p id="cart-count" class="bg-[#2A1F1B] text-white rounded-4xl px-[6px] py-0">0</p>
+                </div>
+                <div id="slide_menu" class="min-[900px]:hidden text-[20px] cursor-pointer">
+                    <i class="fa-solid fa-bars" style="color: rgb(255, 255, 255);"></i>
+                </div>
+            </div>
         </div>
-    
-        <!-- Right Image -->
-        <div class="about-image right-image">
-            <img src="./img/coffee_seeds.jpeg" alt="Coffee Cup">
+        <!-- Nav bar Ended -->
+
+        <!-- Home page Banner section : @Anna poorani -->
+        <div id="hero" class="max-[750px]:flex-col">
+            <div class="content">
+                <p class="small">PREMIUM COFFEE & FRESH FOOD</p>
+                <span class="max-[874px]:text-[47px] min-[874px]:text-[64px]">Good Coffee Better <br> Days</span>
+                <p class="description">
+                    At The Bean Haven, we bring people together over
+                    perfectly brewed coffee, fresh bites and a cozy
+                    atmosphere. More than just a café — it's a feeling.
+                </p>
+                <button>Explore Our Menu →</button>
+            </div>
+            <div class="picture">
+                <img src="./img/Coffee.png" alt="Coffee">
+            </div>
+        </div><!-- Ended home page section -->
+
+        <!-- Features Section: Rohit -->
+        <section class="features">
+            <div class="feature">
+                <span>☕</span>
+                <h2>Premium Quality</h2>
+                <p>Finest beans, expertly brewed.</p>
+            </div>
+            <div class="feature">
+                <span>🫛</span>
+                <h2>Fresh Ingredients</h2>
+                <p>Tasty, healthy, always fresh.</p>
+            </div>
+            <div class="feature">
+                <span>👥</span>
+                <h2>Cozy Atmosphere</h2>
+                <p>A perfect place to relax.</p>
+            </div>
+            <div class="feature">
+                <span>🚚</span>
+                <h2>Fast & Friendly Service</h2>
+                <p>Because you matter.</p>
+            </div>
+        </section><!-- Features section ended: Rohit -->
+
+        <!-- Popup Function: #Naveen -->
+        <!-- Put this just before the closing body tag -->
+        <div id="cart-overlay" class="hidden fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
+            <div id="cart-box" class="relative bg-[#F6F1E8] w-[440px] max-w-[90%] rounded-3xl p-6">
+                <button id="close-btn" class="absolute top-4 right-4 text-xl">✕</button>
+                <h2 class="font-['Playfair_Display'] text-2xl">Your Cart</h2>
+
+                <!-- state 1: empty -->
+                <p id="empty-msg" class="text-center py-10">Your cart is empty. Add something tasty ☕</p>
+
+                <!-- state 2: items, hidden for now -->
+                <div id="cart-items" class="hidden"></div>
+                <!-- total and Place Order: hidden until the cart has items -->
+                <div id="cart-footer" class="hidden">
+                    <div class="flex justify-between py-4 text-xl">
+                        <span>Total</span>
+                        <b id="cart-total">$0.00</b>
+                    </div>
+                    <button id="place-order" class="w-full bg-[#3B2415] text-white rounded-xl py-3">Place Order</button>
+                </div>
+
+                <!-- order placed screen: hidden until Place Order is clicked -->
+                <div id="order-done" class="hidden text-center py-6">
+                    <div
+                        class="mx-auto w-16 h-16 rounded-full bg-green-700 text-white text-3xl flex items-center justify-center">
+                        ✓</div>
+                    <h3 class="font-['Playfair_Display'] text-2xl mt-4">Your order has been placed!</h3>
+                    <p class="py-3">Wait for a few minutes, it will be ready as soon as possible.</p>
+                    <button id="back-menu" class="bg-[#C3956A] rounded-full px-6 py-2">Back to Menu</button>
+                </div>
+            </div>
         </div>
-    
-    </section><!-- AboutUs Ended -->
+        <!-- Ended Popup Function: #Naveen -->
+
+        <!-- Menu section: #naveen -->
+        <div class="p-[20px]">
+
+            <p class="font-extralight text-[11px] font-['Black Ops One', system-ui]">OUR FEATURED MENU</p>
+            <H1 class="text-[36px] text-[#3B2415] font-['Playfair Display', Georgia, serif;]">Popular Picks</H1>
+            <div>
+                <div class="flex gap-4 mt-2.5">
+                    <p class="bg-white px-3 py-1 rounded-2xl text-[#3B2416] cursor-pointer" id="">All</p>
+                    <p class="bg-white px-3 py-1 rounded-2xl text-[#3B2416] cursor-pointer" id="">Coffee</p>
+                    <p class="bg-white px-3 py-1 rounded-2xl text-[#3B2416] cursor-pointer" id="">Cold Drinks</p>
+                    <p class="bg-white px-3 py-1 rounded-2xl text-[#3B2416] cursor-pointer" id="">Food</p>
+                </div>
+                <!-- 1 -->
+                <div id="menu_container" class="mt-5 grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white w-full rounded-3xl">
+                        <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]" src="./img/coffee_bg.jpeg"
+                            alt="">
+                        <div class="m-3 mt-1">
+                            <h1 class="font-['Fraunces'] text-2xl">Espresso</h1>
+                            <p class="text-[11px]">Smooth espresso with steamed mink.</p>
+                            <span class="flex justify-between py-0.5">
+                                <p>$ 5.50</p>
+                                <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer"
+                                    data-name="Espresso" data-price="5.50">🛒</p>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- 2  -->
+                    <div class="bg-white w-full rounded-3xl">
+                        <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]" src="./img/Cappuccino.webp"
+                            alt="">
+                        <div class="m-3 mt-1">
+                            <h1 class="font-['Fraunces'] text-2xl">Cappuccino</h1>
+                            <p class="text-[11px]">A bold, velvety hug in a cup for coffee lovers.</p>
+                            <span class="flex justify-between py-0.5">
+                                <p>$ 6.80</p>
+                                <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer"
+                                    data-name="Cappuccino" data-price="6.80">🛒</p>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- 3 -->
+                    <div class="bg-white w-full rounded-3xl">
+                        <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]" src="./img/Caffe Latte.jpg"
+                            alt="">
+                        <div class="m-3 mt-1">
+                            <h1 class="font-['Fraunces'] text-2xl">Caffe Latte</h1>
+                            <p class="text-[11px]">A smooth, creamy embrace in a cup for daily comfort.</p>
+                            <span class="flex justify-between py-0.5">
+                                <p>$ 4.50</p>
+                                <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer"
+                                    data-name="Caffe Latte" data-price="4.50">🛒</p>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- 4 -->
+                    <div class="bg-white w-full rounded-3xl">
+                        <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]" src="./img/masala chai.jpeg"
+                            alt="">
+                        <div class="m-3 mt-1">
+                            <h1 class="font-['Fraunces'] text-2xl">Masala Chai</h1>
+                            <p class="text-[11px]">Spiced black tea with steamed milk.</p>
+                            <span class="flex justify-between py-0.5">
+                                <p>$ 6.50</p>
+                                <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer"
+                                    data-name="Masala Chai" data-price="6.50">🛒</p>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- 5 -->
+                    <div class="bg-white w-full rounded-3xl">
+                        <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]" src="./img/Cold coffee.jpg"
+                            alt="">
+                        <div class="m-3 mt-1">
+                            <h1 class="font-['Fraunces'] text-2xl">Cold Coffee</h1>
+                            <p class="text-[11px]">Bold, icy chill in a cup for instant refreshment.</p>
+                            <span class="flex justify-between py-0.5">
+                                <p>$ 4.25</p>
+                                <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer"
+                                    data-name="Cold Coffee" data-price="4.25">🛒</p>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- 6 -->
+                    <div class="bg-white w-full rounded-3xl">
+                        <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]" src="./img/Mango Lassi.jpeg"
+                            alt="">
+                        <div class="m-3 mt-1">
+                            <h1 class="font-['Fraunces'] text-2xl">Mango Lassi</h1>
+                            <p class="text-[11px]">A sweet, tropical chill in a glass for pure bliss.</p>
+                            <span class="flex justify-between py-0.5">
+                                <p>$ 8.00</p>
+                                <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer"
+                                    data-name="Mango Lassi" data-price="8.00">🛒</p>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- 7 -->
+                    <div class="bg-white w-full rounded-3xl">
+                        <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]" src="./img/Samosa Chaat.jpeg"
+                            alt="">
+                        <div class="m-3 mt-1">
+                            <h1 class="font-['Fraunces'] text-2xl">Samosa Chaat</h1>
+                            <p class="text-[11px]">Crispy pastry filled with spiced potatoes.</p>
+                            <span class="flex justify-between py-0.5">
+                                <p>$ 3.50</p>
+                                <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer"
+                                    data-name="Samosa Chaat" data-price="3.50">🛒</p>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- 8 -->
+                    <div class="bg-white w-full rounded-3xl">
+                        <img class="w-full rounded-t-3xl h-[272px] max-[502px]:h-[180px]" src="./img/Veg Puff.jpeg"
+                            alt="">
+                        <div class="m-3 mt-1">
+                            <h1 class="font-['Fraunces'] text-2xl">Veg Puff</h1>
+                            <p class="text-[11px]">Flaky pastry filled with spiced vegetables.</p>
+                            <span class="flex justify-between py-0.5">
+                                <p>$ 3.99</p>
+                                <p class="add-btn bg-[#3B2416] rounded-2xl p-1 px-1.5 cursor-pointer" data-price="3.99"
+                                    data-name="Veg Puff">🛒</p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Us Section: Rohit -->
+        <section class="about-section">
+
+            <!-- Left Image -->
+            <div class="about-image left-image">
+                <img src="./img/coffee.cup.webp" alt="Coffee Cafe">
+                <h2>A Space for Good<br>Moments ♡</h2>
+            </div>
+
+            <!-- Center Content -->
+            <div class="about-content">
+
+                <p class="about-subtitle">ABOUT US</p>
+
+                <h1>Our Story</h1>
+
+                <p class="about-description">
+                    The Bean Haven was born from a simple
+                    idea — great coffee brings people together.
+                    What started as a small passion project has
+                    grown into a cozy cafe where every cup
+                    tells a story.
+                </p>
+
+                <div class="about-features">
+                    <div class="flex flex-col items-center text-[11px]">
+                        <span>☕</span>
+                        <p>Quality Beans</p>
+                    </div>
+
+                    <div class="flex flex-col items-center text-[11px]">
+                        <span>👨‍🍳</span>
+                        <p>Skilled Baristas</p>
+                    </div>
+
+                    <div class="flex flex-col items-center text-[11px]">
+                        <span>🧡</span>
+                        <p>Warm Community</p>
+                    </div>
+                </div>
+
+                <a href="#" class="about-btn">Learn More →</a>
+
+            </div>
+
+            <!-- Right Image -->
+            <div class="about-image right-image">
+                <img src="./img/coffee_seeds.jpeg" alt="Coffee Cup">
+            </div>
+
+        </section><!-- AboutUs Ended -->
 
 
-   <!--Subscribe banner Started here Annapoorani -->
-    <section class="subscribe">
-    <div class="text">
-            <h2>Join Our Coffee Club</h2>
-            <p>Get exclusive offers, new menu updates and special events.</p>
-        </div>
-        <form class="email-box" id="subscribeForm">
-            <input type="email" id="email"
-                   placeholder="Your email address" required>
-                   <button type="submit">Subscribe →</button>
+        <!--Subscribe banner Started here Annapoorani -->
+        <section class="subscribe">
+            <div class="text">
+                <h2>Join Our Coffee Club</h2>
+                <p>Get exclusive offers, new menu updates and special events.</p>
+            </div>
+            <form class="email-box" id="subscribeForm">
+                <input type="email" id="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe →</button>
             </form>
             <div class="welcome-msg" id="welcomeMsh">Welcome to the club! ☕</div>
-    </section>
-    <!--Subscribe banner ended here Annapoorani -->
+        </section>
+        <!--Subscribe banner ended here Annapoorani -->
     </div>
-    
-    
+
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+
+        <div class="container mx-auto px-6 py-16">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+                <!-- Left Side Contact Information -->
+                <div>
+
+                    <h1 class="text-4xl font-bold text-[#402817] mb-8">
+                        Contact Us
+                    </h1>
+
+                    <div class="mb-6">
+                        <h3 class="font-bold text-[#402817] mb-1">
+                            📍 Visit Us
+                        </h3>
+
+                        <p class="text-gray-500">
+                            123 Coffee Lane, Greenview, New York, NY 10001
+                        </p>
+                    </div>
+
+
+                    <div class="mb-6">
+                        <h3 class="font-bold text-[#402817] mb-1">
+                            📞 Call Us
+                        </h3>
+
+                        <p class="text-gray-500">
+                            +91 12345-67890
+                        </p>
+                    </div>
+
+
+                    <div class="mb-6">
+                        <h3 class="font-bold text-[#402817] mb-1">
+                            ✉️ Email Us
+                        </h3>
+
+                        <p class="text-gray-500">
+                            hello@thebeanhaven.com
+                        </p>
+                    </div>
+
+
+                    <div>
+                        <h3 class="font-bold text-[#402817] mb-1">
+                            🕒 Opening Hours
+                        </h3>
+
+                        <p class="text-gray-500">
+                            Mon - Sun, 7:00 AM - 9:00 PM
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- Right Side Contact Form -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+
+                    <h2 class="text-2xl font-bold text-[#402817] mb-5">
+                        Send Us a Message
+                    </h2>
+
+                    <form id="contactForm">
+
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+
+                            <input type="text" id="name" placeholder="Name"
+                                class="w-full border border-gray-300 rounded px-3 py-3 outline-none focus:border-[#402817]"
+                                required>
+
+                            <input type="email" id="contactEmail" placeholder="Email"
+                                class="w-full border border-gray-300 rounded px-3 py-3 outline-none focus:border-[#402817]"
+                                required>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <textarea id="message" rows="4" placeholder="Message"
+                                class="w-full border border-gray-300 rounded px-3 py-3 outline-none focus:border-[#402817] resize-y"
+                                required></textarea>
+
+                        </div>
+
+
+                        <button type="submit"
+                            class="w-full bg-[#35180C] text-white py-3 rounded-md font-semibold hover:bg-[#241008]">
+                            Send Message 
+                        </button>
+
+
+                        <p id="successMessage" class="hidden text-green-600 text-center mt-4 font-semibold">
+                            Your message has been submitted successfully!
+                        </p>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
     <div class="bg-[#351602] text-[#A8A19B] text-center p-4">
         <p> © 2026 The Bean Haven · Coffee · Food · Good Vibes</p>
     </div>
-    
-    
- <script src="./Javascript.js"></script>
+
+
+    <script src="./Javascript.js"></script>
 </body>
+
 </html>
