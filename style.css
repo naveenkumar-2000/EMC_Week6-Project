@@ -89,10 +89,9 @@ button {
         width: 100%;
     }
 
-    h1 {
+    #hero h1 {
         font-size: 42px;
     }
-
 }
 
 /* Banner section ended Annapoorani */
@@ -360,10 +359,65 @@ button {
 
 /* about css ended: #Rohit */
 
-/* Gallery uploads Mayuri */
-.hint{font-size:14px;opacity:.7}
-.upload{cursor:pointer}
-.upload-err{color:#a3361f;font-size:14px;margin-top:12px}
-.gallery .media{position:relative;overflow:hidden;background:#000}
-.gallery .media img,.gallery .media video{width:100%;height:100%;object-fit:cover;display:block}
-.gallery .media button{position:absolute;top:6px;right:6px;width:26px;height:26px;border:0;border-radius:50%;background:rgba(31,20,16,.75);color:#fff;cursor:pointer}
+/* Gallery uploads */
+.hint {
+    font-size: 14px;
+    opacity: .7;
+}
+
+.upload {
+    cursor: pointer;
+}
+
+.upload-err {
+    color: #a3361f;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.gallery .media {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+}
+
+.gallery .media img,
+.gallery .media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery .media button {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 26px;
+    height: 26px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(31, 20, 16, .75);
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Cart popup: plain buttons, caramel only on Place Order */
+#cart-overlay button {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+#cart-overlay #place-order {
+    background-color: #d4a071;
+    padding: 12px 20px;
+}
+
+#cart-overlay #back-menu {
+    border: 2px solid #d4a071;
+    border-radius: 999px;
+    padding: 10px 24px;
+}
