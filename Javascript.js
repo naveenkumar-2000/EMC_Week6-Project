@@ -2,12 +2,12 @@ var form = document.getElementById("subscribeForm");
 
 form.addEventListener("submit", function (event) {
 
-  event.preventDefault();
+event.preventDefault();
 
-  var email = document.getElementById("email").value;
+var email = document.getElementById("email").value;
 
-  form.style.display = "none";
-  document.getElementById("welcomeMsh").style.display = "block";
+form.style.display = "none";
+document.getElementById("welcomeMsh").style.display = "block";
 
 });
 
@@ -188,3 +188,80 @@ contactForm.addEventListener("submit", function (e) {
 
 });
 
+
+const imageInput = document.getElementById("imageInput");
+const gallery = document.getElementById("gallery");
+
+// Four Default Images
+const defaultImages = [
+    {
+        src: "img/coffee1.jpeg",
+        name: "Midnight Brew"
+    },
+    {
+        src: "img/coffee2.jpg",
+        name: "Velvet Pour"
+    },
+    {
+        src: "img/coffee3.jpeg",
+        name: "Golden Tradition"
+    },
+    {
+        src: "img/coffee4.jpeg",
+        name: "Rich Roast"
+    }
+];
+
+// Create Image Card
+function createImageCard(imageURL, imageName, isUploaded = false) {
+
+    const imageCard = document.createElement("div");
+    imageCard.classList.add("image-card");
+
+    const img = document.createElement("img");
+    img.src = imageURL;
+    img.alt = imageName;
+
+    const title = document.createElement("h3");
+    title.classList.add("image-title");
+    title.textContent = imageName;
+
+    imageCard.appendChild(img);
+    imageCard.appendChild(title);
+
+    gallery.appendChild(imageCard);
+}
+
+// Display Default Images
+defaultImages.forEach(function(image) {
+    createImageCard(image.src, image.name);
+});
+
+// Upload New Images
+let uploadCount = 0;
+
+imageInput.addEventListener("change", function(event) {
+
+    const files = event.target.files;
+
+    for (let i = 0; i < files.length; i++) {
+
+        const file = files[i];
+
+        if (!file.type.startsWith("image/")) {
+            continue;
+        }
+
+        const imageURL = URL.createObjectURL(file);
+
+        uploadCount++;
+
+        createImageCard(
+            imageURL,
+            "Fresh Pick " + uploadCount,
+            true
+        );
+    }
+
+    imageInput.value = "";
+});
